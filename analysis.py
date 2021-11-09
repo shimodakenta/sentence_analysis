@@ -23,7 +23,7 @@ for i in range(1, 5):
   # CSV出力
   with open(f'{i}_gram.csv', 'w') as f:
     for row in c.most_common():
-        print(*row, sep=',', file=f)
+        print(*row, sep='\t', file=f)
 
   # グラフ出力
   # d = list(data)
