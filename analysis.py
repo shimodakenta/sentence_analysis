@@ -1,12 +1,17 @@
 import collections
 import csv
 import pykakasi
+import glob
+
 
 # ファイル読み込み
-with open('freewriting.txt', 'r', encoding='UTF-8') as f:
-  txt = ''
-  for item in pykakasi.kakasi().convert(f.read()):
-    txt += item['hira']
+dir_path = '/Users/macbookpro/Library/Mobile Documents/iCloud~md~obsidian/Documents/MyData'
+for file in glob.glob(dir_path + '/202*-*.md'):
+  print(file)
+  with open(file, 'r', encoding='UTF-8') as f:
+    txt = ''
+    for item in pykakasi.kakasi().convert(f.read()):
+      txt += item['hira']
 
 # 単語長ごとに解析する
 for i in range(1, 5):
